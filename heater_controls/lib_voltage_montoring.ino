@@ -5,7 +5,7 @@ void monitorVoltage() {
   float v1 = 0.0;
   float v2 = 0.0;
   int samples = 0;
-  float cal = 5;  // voltage calibration constant
+  float cal = 5.43;  // voltage calibration constant
 
   // take a few samples of voltage and average
   while(samples < numSamples) {
@@ -26,5 +26,9 @@ void monitorVoltage() {
   Serial.println("Monitor:");
   Serial.println(v1);
   Serial.println(v2);
-
+  
+  if(min(v1, v2) < vCutoff){
+    Serial.println("UNDER VOLTAGE");
+    delay(timeOff);
+  }
 }
