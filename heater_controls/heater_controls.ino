@@ -13,7 +13,7 @@ int fleecePower = 1;            // current fleece power mode
 float fleecePWM = 1;            // 
 
 const int maxPower = 3;         // max number of power modes
-const int period = 1000;        // ?
+const int period = 1000;        // time per power cycle
 float insoleRecordTime = 0;     //
 float fleeceRecordTime = 0;     // 
 
@@ -21,8 +21,8 @@ float fleeceRecordTime = 0;     //
 const bool rgbPower[3][3] = {{LOW, LOW, HIGH}, {HIGH, HIGH, HIGH}, {HIGH, LOW, LOW}};
 
 const int redInsolePin = 3;
-const int greenInsolePin = 4;
-const int blueInsolePin = 5;
+const int greenInsolePin = 5;
+const int blueInsolePin = 6;
 
 const int redFleecePin = 7;
 const int greenFleecePin = 8;
@@ -69,5 +69,4 @@ void loop() {
   monitorButton();
   insoleRecordTime = monitorPWM(insolePin, insoleRecordTime, insolePWM);
   fleeceRecordTime = monitorPWM(fleecePin, fleeceRecordTime, fleecePWM);
-  monitorVoltage();
 }
